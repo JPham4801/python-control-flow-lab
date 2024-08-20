@@ -4,7 +4,7 @@
 #     while True:
 #         letter = input('Enter a letter (a-z or A-Z): ').lower()
 #         vowels = ['a', 'e', 'i', 'o', 'u']
-        
+
 #         if not letter.isalpha() or len(letter) > 1:
 #             print(f'"{letter}" is not a valid input. Please try again')
 #         elif letter in vowels:
@@ -21,7 +21,7 @@
 
 # def check_voting_eligibility():
 #     LEGAL_VOTING_AGE = 18
-    
+
 #     while True:
 #         age = input("Please enter your age: ")
 
@@ -43,7 +43,7 @@
 # def calculate_dog_years():
 #     while True:
 #         human_dog_age = int(input("Input a dog's age: "))
-        
+
 #         if human_dog_age < 0:
 #             print(f'"{human_dog_age}" is not a valid input. Please try again')
 #             continue
@@ -63,10 +63,10 @@
 # def weather_advice():
 #     is_cold = input('Is it cold outside? (Y/N): ').lower()
 #     is_raining = input('Is it raining outside? (Y/N): ').lower()
-    
+
 #     is_cold = True if is_cold == 'y' else False
 #     is_raining = True if is_raining == 'y' else False
-    
+
 
 #     if is_cold and is_raining:
 #         print("Wear a waterproof coat.")
@@ -100,8 +100,15 @@
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
 def determine_season():
+    months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun',
+              'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+    days = list(range(1, 32))  # Going to assume that every month has 31 days
+
     month = input("Enter the month of the year (Jan - Dec): ").lower()
-    
+    day = input("Enter the day of the month: ")
+
+    if not month in months or not day in days:
+        print('Not a valid input')
 
 
 determine_season()
