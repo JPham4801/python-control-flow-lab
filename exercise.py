@@ -102,13 +102,23 @@
 def determine_season():
     months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun',
               'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-    days = list(range(1, 32))  # Going to assume that every month has 31 days
 
-    month = input("Enter the month of the year (Jan - Dec): ").lower()
-    day = input("Enter the day of the month: ")
-
-    if not month in months or not day in days:
-        print('Not a valid input')
-
-
+    month = input("Enter the month of the year (mmm): ").lower()
+    try:
+        day = int(input("Enter the day of the month (dd): "))
+    except ValueError:
+        print("Invalid day. Please enter a valid day number.")
+        return
+    
+    
+    if (month == 'dec' and day >= 21) or (month == 'jan' or month == 'feb') or (month == 'mar' and day <= 19):
+        print('Winter')
+    elif (month == 'mar' and day >= 20) or (month == 'apr' or month == 'may') or (month == 'jun' and day <= 20):
+        print('Spring')
+    elif (month == 'jun' and day >= 21) or (month == 'jul' or month == 'aug') or (month == 'sep' and day <= 21):
+        print('Summer')
+    elif (month == 'sep' and day >= 22) or (month == 'oct' or month == 'nov') or (month == 'dec' and day <= 20):
+        print('Fall')
+    else:
+        print('error')
 determine_season()
