@@ -120,5 +120,5 @@ def determine_season():
     elif (month == 'sep' and day >= 22) or (month == 'oct' or month == 'nov') or (month == 'dec' and day <= 20):
         print('Fall')
     else:
-        print('error')
+        print('Invalid input. Please try again')
 determine_season()
